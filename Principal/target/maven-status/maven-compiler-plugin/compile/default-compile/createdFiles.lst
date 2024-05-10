@@ -1,1 +1,3 @@
 com\a3\principal\Principal.class
+com\a3\principal\Produto.class
+com\a3\principal\ProdutoBuilder.class

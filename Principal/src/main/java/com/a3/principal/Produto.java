@@ -1,13 +1,22 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.a3.principal;
 
-/**
- *
- * @author Pichau
- */
-public class Produto {
+public class Produto
+{
+    private int id;
+    private String name, productType, brandOnwer;
+    private int price, availableAmount;
+    public Produto(int id, String name, String productType, String brandOnwer, int price, int availableAmount)
+    {
+        this.id = id;
+        this.name = name;
+        this.brandOnwer = brandOnwer;
+        this.price = price;
+        this.productType = productType;
+        this.availableAmount = availableAmount;
+    }
     
+    public String toString()
+    {
+        return "Produto de ID: " + id + " Nome: " + name + " Marca: " + brandOnwer + " Categoria: " + productType + " Quantidade Disponivel: " + availableAmount + " Preço: " + price;
+    }
 }
