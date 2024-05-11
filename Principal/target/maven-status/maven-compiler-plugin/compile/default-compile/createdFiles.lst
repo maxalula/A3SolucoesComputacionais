@@ -1,3 +1,7 @@
-com\a3\principal\Principal.class
-com\a3\principal\Produto.class
+com\a3\principal\GerenciadorOrdenacao.class
+com\a3\principal\AtributosProduto.class
 com\a3\principal\ProdutoBuilder.class
+com\a3\principal\Produto.class
+com\a3\principal\Estoque.class
+com\a3\principal\Produto$1.class
+com\a3\principal\Principal.class

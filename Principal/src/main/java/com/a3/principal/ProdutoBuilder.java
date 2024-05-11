@@ -3,7 +3,7 @@ package com.a3.principal;
 public class ProdutoBuilder
 {
     private int id;
-    private String name, productType, brandOnwer;
+    private String name, productType, brandOwner;
     private int price, availableAmount;
 
     /**
@@ -33,8 +33,8 @@ public class ProdutoBuilder
     /**
      * @param brandOnwer the brandOnwer to set
      */
-    public ProdutoBuilder setBrandOnwer(String brandOnwer) {
-        this.brandOnwer = brandOnwer;
+    public ProdutoBuilder setBrandOwner(String brandOwner) {
+        this.brandOwner = brandOwner;
         return this;
     }
 
@@ -56,7 +56,7 @@ public class ProdutoBuilder
     
     public Produto getProduto()
     {
-        return new Produto(this.id, this.name, this.productType, this.brandOnwer, this.price, this.availableAmount);
+        return new Produto(this.id, this.name, this.productType, this.brandOwner, this.price, this.availableAmount);
     }
     
 }
