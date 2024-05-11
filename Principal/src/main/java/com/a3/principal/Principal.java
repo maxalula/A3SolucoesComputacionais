@@ -1,3 +1,27 @@
+/*
+DESCRIÇÃO COMPLETA DA EQUIPE
+INTEGRANTES:
+{
+    Nome: Rafael Dos Anjos Costa 
+    RA: 1272419765
+}
+{
+    Nome: Gabriel Enzo Coutinho de Melo 
+    RA: 1272412136
+}
+{
+    Nome: Eduardo Batista Araujo  
+    RA: 1272327420
+}
+{
+    Nome: Tiago Silva Coelho Maciel
+    RA: 1272326567
+}
+{
+    Nome: Marcossuel 
+    RA: 
+}
+*/
 package com.a3.principal;
 
 import java.util.*;
@@ -15,18 +39,35 @@ public class Principal
             System.out.println(Estoque.ObterEstoque().ObterProdutoNoIndice(i));
         }
         
-        System.out.println();
-        System.out.println("****************************");
-        System.out.println();
+        PrintEmptyLine();
         
         //Listar por ID - Ordem Crescente(Atributo da classe Produto)
         
-        Produto[] produtosOrdenados = Estoque.ObterEstoque().ObterEstoquePorID(false);
+        Produto[] produtosOrdenados = Estoque.ObterEstoque().ObterEstoquePor(AtributosProduto.AVAILABLE_AMOUNT, true, "int");
         
         for(int i=0;i<produtosOrdenados.length;i++)
         {
             System.out.println(produtosOrdenados[i]);
         }
+        
+        PrintEmptyLine();
+        
+        //Buscar produtos por nome;
+        String buscaFeita = "a";
+        ArrayList<Produto> produtosEncontrados = Estoque.ObterEstoque().BuscarProdutoPor(AtributosProduto.NAME, buscaFeita);
+        
+        for(int i=0; i<produtosEncontrados.size(); i++)
+        {
+            System.out.println(produtosEncontrados.get(i));
+        }
+        
+    }
+    
+    public static void PrintEmptyLine()
+    {
+        System.out.println();
+        System.out.println("****************************");
+        System.out.println();
     }
     
     public static void InicializarSeteProdutos()

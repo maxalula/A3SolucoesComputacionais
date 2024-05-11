@@ -40,15 +40,34 @@ public class Estoque
     {
         return produtosEmEstoque.size();
     }
-    public Produto[] ObterEstoquePorID(boolean ordemCrescente)
+    public Produto[] ObterEstoquePor(AtributosProduto atributosProduto, boolean ordemCrescente, String tipoOrdenacao)
     {
         Produto[] arrayProdutos = new Produto[produtosEmEstoque.size()];
         for(int i=0;i<arrayProdutos.length;i++)
         {
             arrayProdutos[i] = produtosEmEstoque.get(i);
-            arrayProdutos[i].OrdenacaoPor = AtributosProduto.PRICE;
+            arrayProdutos[i].OrdenacaoPor = atributosProduto;
         }
         
-        return GerenciadorOrdenacao.ObterEstoqueOrdenado(arrayProdutos, ordemCrescente, "int");
+        return GerenciadorOrdenacao.ObterEstoqueOrdenado(arrayProdutos, ordemCrescente, tipoOrdenacao);
+    }
+    
+    public ArrayList<Produto> BuscarProdutoPor(AtributosProduto atributosProduto, String criterioBusca)
+    {
+        criterioBusca = criterioBusca.toLowerCase();
+        
+        ArrayList<Produto> arrayProdutos = new ArrayList<Produto>();
+        
+        for(int i=0; i<produtosEmEstoque.size(); i++)
+        {
+            produtosEmEstoque.get(i).OrdenacaoPor = atributosProduto;
+            
+            if(produtosEmEstoque.get(i).STRING_ValorOrdenavel().toLowerCase().contains(criterioBusca))
+            {
+                arrayProdutos.add(produtosEmEstoque.get(i));
+            }
+        }
+        
+        return arrayProdutos;
     }
 }
