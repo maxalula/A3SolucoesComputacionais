@@ -3,19 +3,19 @@ package com.a3.principal;
 public class GerenciadorOrdenacao
 {
     //Metodo estatico responsavel por ordenar produtos
-    public static Produto[] ObterEstoqueOrdenado(Produto[] produtos, boolean inverter, String tipoVariavel)
+    public static Produto[] ObterEstoqueOrdenado(Produto[] produtos, boolean inverter, String tipoVariavel, AtributosProduto ordenarPor)
     {
         if(tipoVariavel.equals("int"))
         {
-            return INT_OrdenarEstoque(produtos, inverter);
+            return INT_OrdenarEstoque(produtos, inverter, ordenarPor);
         }
         else
         {
-            return STR_OrdenarEstoque(produtos, inverter);
+            return STR_OrdenarEstoque(produtos, inverter, ordenarPor);
         }
     }
     
-    private static Produto[] INT_OrdenarEstoque(Produto[] produtos, boolean inverter)
+    private static Produto[] INT_OrdenarEstoque(Produto[] produtos, boolean inverter, AtributosProduto ordenarPor)
     {
         for (int i = 1; i < produtos.length; i++)
         {
@@ -23,7 +23,7 @@ public class GerenciadorOrdenacao
             int j = i - 1;// J starts a index Before the current I
             if(inverter)
             {
-                while (j >= 0 && produtos[j].INT_ValorOrdenavel() > currentValue.INT_ValorOrdenavel())//Jay cannot go past the index 0(duh) and Sorting Criteria
+                while (j >= 0 && produtos[j].INT_ValorOrdenavel(ordenarPor) > currentValue.INT_ValorOrdenavel(ordenarPor))//Jay cannot go past the index 0(duh) and Sorting Criteria
                 {
                     produtos[j + 1] = produtos[j];
                     j--;
@@ -31,7 +31,7 @@ public class GerenciadorOrdenacao
             }
             else
             {
-                while (j >= 0 && produtos[j].INT_ValorOrdenavel() < currentValue.INT_ValorOrdenavel())//Jay cannot go past the index 0(duh) and Sorting Criteria
+                while (j >= 0 && produtos[j].INT_ValorOrdenavel(ordenarPor) < currentValue.INT_ValorOrdenavel(ordenarPor))//Jay cannot go past the index 0(duh) and Sorting Criteria
                 {
                     produtos[j + 1] = produtos[j];
                     j--;
@@ -42,7 +42,7 @@ public class GerenciadorOrdenacao
         
         return produtos;
     }
-    private static Produto[] STR_OrdenarEstoque(Produto[] produtos, boolean inverter)
+    private static Produto[] STR_OrdenarEstoque(Produto[] produtos, boolean inverter, AtributosProduto ordenarPor)
     {
         //TODO: Retornar em ordem alfabetica / invertida
         return produtos;

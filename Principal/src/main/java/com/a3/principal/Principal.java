@@ -18,8 +18,8 @@ INTEGRANTES:
     RA: 1272326567
 }
 {
-    Nome: Marcossuel 
-    RA: 
+    Nome: Marcossuel Cerqueira dos Santos  
+    RA: 12723215922
 }
 */
 package com.a3.principal;
@@ -53,7 +53,7 @@ public class Principal
         PrintEmptyLine();
         
         //Buscar produtos por nome;
-        String buscaFeita = "a";
+        String buscaFeita = "t";
         ArrayList<Produto> produtosEncontrados = Estoque.ObterEstoque().BuscarProdutoPor(AtributosProduto.NAME, buscaFeita);
         
         for(int i=0; i<produtosEncontrados.size(); i++)
@@ -104,6 +104,10 @@ public class Principal
         Estoque.ObterEstoque().AdicionarProdutoAoEstoque(new ProdutoBuilder().setId(4).
                 setName("Camisa Polo").setProductType("Roupas").setBrandOwner("Polo").
                 setPrice(75).setAvailableAmount(0).getProduto());
+        
+        Estoque.ObterEstoque().AdicionarProdutoAoEstoque(new ProdutoBuilder().setId(1).
+                setName("Tenis Esportivo").setProductType("Roupas").setBrandOwner("Nike").
+                setPrice(450).setAvailableAmount(5000).getProduto());
        
     }
 }

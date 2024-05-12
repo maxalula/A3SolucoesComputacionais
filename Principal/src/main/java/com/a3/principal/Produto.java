@@ -6,11 +6,10 @@ public class Produto
     private String name, productType, brandOwner;
     private int price, availableAmount;
     
-    public AtributosProduto OrdenacaoPor;
-    
-    public int INT_ValorOrdenavel()
+    //public AtributosProduto OrdenacaoPor;
+    public int INT_ValorOrdenavel(AtributosProduto ordenarPor)
     {
-        switch(OrdenacaoPor)
+        switch(ordenarPor)
         {
             case ID:
               return this.id;
@@ -25,9 +24,9 @@ public class Produto
               return this.id;
           }
     }
-    public String STRING_ValorOrdenavel()
+    public String STRING_ValorOrdenavel(AtributosProduto ordenarPor)
     {
-        switch(OrdenacaoPor)
+        switch(ordenarPor)
         {
             case NAME:
               return this.name;
@@ -59,6 +58,21 @@ public class Produto
         this.availableAmount = availableAmount;
     }
     
+    public void UpdateAmount(boolean increase, int quantity)
+    {
+        if(increase)
+        {
+            availableAmount += quantity;
+        }
+        else
+        {
+            availableAmount -= quantity;
+            if(availableAmount <= 0)
+            {
+                availableAmount = 0;
+            }
+        }
+    }
     public String toString()
     {
         return "Produto de ID: " + id + " Nome: " + name + " Marca: " + brandOwner + " Categoria: " + productType + " Quantidade Disponivel: " + availableAmount + " Preço: " + price;

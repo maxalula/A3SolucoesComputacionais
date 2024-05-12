@@ -26,7 +26,40 @@ public class Estoque
     private ArrayList<Produto> produtosEmEstoque = new ArrayList<Produto>();
     public void AdicionarProdutoAoEstoque(Produto produto)
     {
-        produtosEmEstoque.add(produto);
+        int idProduto = produto.INT_ValorOrdenavel(AtributosProduto.ID);
+        if(!ContemProdutoDeID(idProduto))
+        {
+            produtosEmEstoque.add(produto);
+        }
+        else
+        {
+            Produto produtoEncontrado = RetornarProdutoDeID(idProduto);
+            produtoEncontrado.UpdateAmount(true, produto.INT_ValorOrdenavel(AtributosProduto.AVAILABLE_AMOUNT));
+        }
+    }
+    public boolean ContemProdutoDeID(int id)
+    {
+        for(int i=0;i<produtosEmEstoque.size();i++)
+        {
+            if(produtosEmEstoque.get(i).INT_ValorOrdenavel(AtributosProduto.ID) == id)
+            {
+                return true;
+            }
+        }
+        
+        return false;
+    }
+    public Produto RetornarProdutoDeID(int id)
+    {
+        for(int i=0;i<produtosEmEstoque.size();i++)
+        {
+            if(produtosEmEstoque.get(i).INT_ValorOrdenavel(AtributosProduto.ID) == id)
+            {
+                return produtosEmEstoque.get(i);
+            }
+        }
+        
+        return null;
     }
     public void RemoverProdutoDoEstoque(int indiceNaLista)
     {
@@ -46,10 +79,10 @@ public class Estoque
         for(int i=0;i<arrayProdutos.length;i++)
         {
             arrayProdutos[i] = produtosEmEstoque.get(i);
-            arrayProdutos[i].OrdenacaoPor = atributosProduto;
+            //arrayProdutos[i].OrdenacaoPor = atributosProduto;
         }
         
-        return GerenciadorOrdenacao.ObterEstoqueOrdenado(arrayProdutos, ordemCrescente, tipoOrdenacao);
+        return GerenciadorOrdenacao.ObterEstoqueOrdenado(arrayProdutos, ordemCrescente, tipoOrdenacao, atributosProduto);
     }
     
     public ArrayList<Produto> BuscarProdutoPor(AtributosProduto atributosProduto, String criterioBusca)
@@ -60,9 +93,8 @@ public class Estoque
         
         for(int i=0; i<produtosEmEstoque.size(); i++)
         {
-            produtosEmEstoque.get(i).OrdenacaoPor = atributosProduto;
-            
-            if(produtosEmEstoque.get(i).STRING_ValorOrdenavel().toLowerCase().contains(criterioBusca))
+            //produtosEmEstoque.get(i).OrdenacaoPor = atributosProduto;            
+            if(produtosEmEstoque.get(i).STRING_ValorOrdenavel(atributosProduto).toLowerCase().contains(criterioBusca))
             {
                 arrayProdutos.add(produtosEmEstoque.get(i));
             }
