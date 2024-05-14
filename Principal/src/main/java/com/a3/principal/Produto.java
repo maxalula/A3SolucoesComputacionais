@@ -2,11 +2,26 @@ package com.a3.principal;
 
 public class Produto
 {
-    private int id;
-    private String name, productType, brandOwner;
-    private int price, availableAmount;
+    protected int id;
+    protected String name, productType, brandOwner;
+    protected int price, availableAmount;
+    /*
+    Criar uma classe para armazenar o tipo que vai ser ordenado
+    essa classe pode receber um tipo de forma generica
+    e retornar de acordo um dos atributos desta classe(this)
+    para ordenacao
     
-    //public AtributosProduto OrdenacaoPor;
+    */
+    public Produto(int id, String name, String productType, String brandOwner, int price, int availableAmount)
+    {
+        this.id = id;
+        this.name = name;
+        this.brandOwner = brandOwner;
+        this.price = price;
+        this.productType = productType;
+        this.availableAmount = availableAmount;
+    }
+    
     public int INT_ValorOrdenavel(AtributosProduto ordenarPor)
     {
         switch(ordenarPor)
@@ -41,23 +56,6 @@ public class Produto
               return this.name;
           }
     }
-    /*
-    Criar uma classe para armazenar o tipo que vai ser ordenado
-    essa classe pode receber um tipo de forma generica
-    e retornar de acordo um dos atributos desta classe(this)
-    para ordenacao
-    
-    */
-    public Produto(int id, String name, String productType, String brandOwner, int price, int availableAmount)
-    {
-        this.id = id;
-        this.name = name;
-        this.brandOwner = brandOwner;
-        this.price = price;
-        this.productType = productType;
-        this.availableAmount = availableAmount;
-    }
-    
     public void UpdateAmount(boolean increase, int quantity)
     {
         if(increase)

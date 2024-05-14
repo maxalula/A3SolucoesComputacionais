@@ -32,7 +32,6 @@ public class Principal
     {
         InicializarSeteProdutos();
         
-        
         //Listar estoque
         for(int i=0;i<Estoque.ObterEstoque().QuantidadeProdutosEstoque();i++)
         {
@@ -43,7 +42,7 @@ public class Principal
         
         //Listar por ID - Ordem Crescente(Atributo da classe Produto)
         
-        Produto[] produtosOrdenados = Estoque.ObterEstoque().ObterEstoquePor(AtributosProduto.AVAILABLE_AMOUNT, true, "int");
+        Produto[] produtosOrdenados = Estoque.ObterEstoque().ObterEstoquePor(AtributosProduto.NAME, false, "string");
         
         for(int i=0;i<produtosOrdenados.length;i++)
         {
@@ -52,7 +51,7 @@ public class Principal
         
         PrintEmptyLine();
         
-        //Buscar produtos por nome;
+        /*Buscar produtos por nome;
         String buscaFeita = "t";
         ArrayList<Produto> produtosEncontrados = Estoque.ObterEstoque().BuscarProdutoPor(AtributosProduto.NAME, buscaFeita);
         
@@ -61,6 +60,28 @@ public class Principal
             System.out.println(produtosEncontrados.get(i));
         }
         
+        
+        PrintEmptyLine();
+        //Remover e Listar estoque
+        Estoque.ObterEstoque().RemoverProdutoDeID(5);
+        for(int i=0;i<Estoque.ObterEstoque().QuantidadeProdutosEstoque();i++)
+        {
+            System.out.println(Estoque.ObterEstoque().ObterProdutoNoIndice(i));
+        }
+        
+        PrintEmptyLine();
+        
+        //Modificar um registro e print
+        Produto produtoModificado = new ProdutoBuilder().setId(0).
+                setName("Computador Gamer Pichau").setProductType("Informatica").setBrandOwner("Pichau").
+                setPrice(8000).setAvailableAmount(32).getProduto();
+        
+        Estoque.ObterEstoque().ModificarProdutoDeID(0, produtoModificado);
+        for(int i=0;i<Estoque.ObterEstoque().QuantidadeProdutosEstoque();i++)
+        {
+            System.out.println(Estoque.ObterEstoque().ObterProdutoNoIndice(i));
+        }
+        */
     }
     
     public static void PrintEmptyLine()
@@ -108,6 +129,10 @@ public class Principal
         Estoque.ObterEstoque().AdicionarProdutoAoEstoque(new ProdutoBuilder().setId(1).
                 setName("Tenis Esportivo").setProductType("Roupas").setBrandOwner("Nike").
                 setPrice(450).setAvailableAmount(5000).getProduto());
+        
+         Estoque.ObterEstoque().AdicionarProdutoAoEstoque(new ProdutoBuilder().setId(8).
+                setName("Suco De Uva").setProductType("Alimentos").setBrandOwner("Kapo").
+                setPrice(6).setAvailableAmount(9999).getAlimento().SetCalories(300).SetExpiration("10/12/2024"));
        
     }
 }

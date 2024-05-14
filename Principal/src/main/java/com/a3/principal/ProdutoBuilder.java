@@ -58,5 +58,9 @@ public class ProdutoBuilder
     {
         return new Produto(this.id, this.name, this.productType, this.brandOwner, this.price, this.availableAmount);
     }
+    public Alimento getAlimento()
+    {
+        return new Alimento(this.id, this.name, this.productType, this.brandOwner, this.price, this.availableAmount);
+    }
     
 }

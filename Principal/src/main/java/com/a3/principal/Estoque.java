@@ -61,6 +61,31 @@ public class Estoque
         
         return null;
     }
+    public void RemoverProdutoDeID(int id)
+    {
+        for(int i=0;i<produtosEmEstoque.size();i++)
+        {
+            if(produtosEmEstoque.get(i).INT_ValorOrdenavel(AtributosProduto.ID) == id)
+            {
+                /*
+                
+                */
+                RemoverProdutoDoEstoque(i);
+                break;
+            }
+        }
+    }
+    public void ModificarProdutoDeID(int id, Produto produtoModificado)
+    {
+        for(int i=0;i<produtosEmEstoque.size();i++)
+        {
+            if(produtosEmEstoque.get(i).INT_ValorOrdenavel(AtributosProduto.ID) == id)
+            {
+                produtosEmEstoque.set(i, produtoModificado);
+                break;
+            }
+        }
+    }
     public void RemoverProdutoDoEstoque(int indiceNaLista)
     {
         produtosEmEstoque.remove(indiceNaLista);
