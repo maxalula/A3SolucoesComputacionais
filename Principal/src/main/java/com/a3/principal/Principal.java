@@ -25,6 +25,7 @@ INTEGRANTES:
 package com.a3.principal;
 
 import java.util.*;
+import GUI.*;
 
 public class Principal
 {
@@ -82,6 +83,8 @@ public class Principal
             System.out.println(Estoque.ObterEstoque().ObterProdutoNoIndice(i));
         }
         */
+        
+        InterfaceManager.Instancia().Initialize();
     }
     
     public static void PrintEmptyLine()

@@ -57,9 +57,6 @@ public class GerenciadorOrdenacao
         }
         /*Faço uso da collections.sort (do java) para organizar as strings
         E uso comparator para trazer a ordem reversa.
-        
-        Créditos à https://www.baeldung.com/java-sort-list-alphabetically
-        que mostra exemplos de uso destas classes.
         */
         if(inverter)
         {
