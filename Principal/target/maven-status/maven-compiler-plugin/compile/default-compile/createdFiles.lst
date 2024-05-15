@@ -30,6 +30,7 @@ com\a3\principal\Alimento.class
 GUI\EstoqueManagement$1.class
 GUI\EstoqueManagement$6.class
 GUI\Index$2.class
+GUI\AdicionarEstoque$7.class
 com\a3\principal\Produto$1.class
 GUI\EstoqueDisplay$4.class
 com\a3\principal\Principal.class

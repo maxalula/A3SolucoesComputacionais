@@ -37,7 +37,7 @@ public class InterfaceManager
         cardLayout.show(panelCont, "1");
         
         currentFrame.add(panelCont);
-        currentFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        currentFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         currentFrame.pack();
         currentFrame.setVisible(true);
         
