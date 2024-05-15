@@ -209,7 +209,7 @@ public class EditionForm extends javax.swing.JFrame {
         else
         {
             int newId = Integer.parseInt(idField.getText());
-            if(Estoque.ObterEstoque().ContemProdutoDeID(newId))
+            if(Estoque.ObterEstoque().ContemProdutoDeID(newId) && newId != contextId)
             {
                 JOptionPane.showMessageDialog(null, "JÁ EXISTE OUTRO PRODUTO NESTE ID.");
                 return;
