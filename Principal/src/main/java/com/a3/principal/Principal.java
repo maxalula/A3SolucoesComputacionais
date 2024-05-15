@@ -38,13 +38,6 @@ public class Principal
         InterfaceManager.Instancia().Initialize();
     }
     
-    public static void PrintEmptyLine()
-    {
-        System.out.println();
-        System.out.println("****************************");
-        System.out.println();
-    }
-    
     public static void InicializarProdutos()
     {
         

@@ -101,7 +101,7 @@ public class ExlusionForm extends javax.swing.JFrame {
         // TODO add your handling code here:
         Estoque.ObterEstoque().RemoverProdutoDeID(contextProduct.INT_ValorOrdenavel(AtributosProduto.ID));
         JOptionPane.showMessageDialog(null, "PRODUTO REMOVIDO COM SUCESSO.");
-        InterfaceManager.Instancia().UpdateEstoqueManagementAfterExclusion();
+        InterfaceManager.Instancia().UpdateEstoqueManagementAfterEdition();
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
     private Produto contextProduct;

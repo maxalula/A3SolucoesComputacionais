@@ -1,6 +1,9 @@
 package GUI;
 
 import com.a3.principal.*;
+import java.awt.CardLayout;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 public class InterfaceManager
 {
@@ -15,38 +18,52 @@ public class InterfaceManager
     {
         return interfaceManager;
     }
-    private javax.swing.JFrame currentFrame;
+    private JFrame currentFrame = new JFrame("Nome do Aplicativo");
+    private JPanel panelCont = new JPanel();
+    private CardLayout cardLayout = new CardLayout();
+    /* PANELS */
+    private Index index = new Index();
+    private EstoqueDisplay estoqueDisplay = new EstoqueDisplay();
+    private AdicionarEstoque adicionarEstoque = new AdicionarEstoque();
+    private EstoqueManagement estoqueManagement = new EstoqueManagement();
+    /*         */
     public void Initialize()
     {
-        currentFrame = new Index();
+        panelCont.setLayout(cardLayout);
+        panelCont.add(index.getContentPane(), "1");
+        panelCont.add(estoqueDisplay.getContentPane(), "2");
+        panelCont.add(adicionarEstoque.getContentPane(), "3");
+        panelCont.add(estoqueManagement.getContentPane(), "4");
+        cardLayout.show(panelCont, "1");
+        
+        currentFrame.add(panelCont);
+        currentFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        currentFrame.pack();
         currentFrame.setVisible(true);
+        
     }
     public void SwitchWindow(int windowId)
     {
-        currentFrame.setVisible(false);
         switch(windowId)
         {
             case 0:
-                currentFrame = new Index();
-                currentFrame.setVisible(true);
+                cardLayout.show(panelCont, "1");
                 break;
             case 1:
-                currentFrame = new EstoqueDisplay();
-                ((EstoqueDisplay)currentFrame).UpdateTable(Estoque.ObterEstoque().ObterArrayProduto());
-                currentFrame.setVisible(true);
+                estoqueDisplay.UpdateTable(Estoque.ObterEstoque().ObterArrayProduto());
+                cardLayout.show(panelCont, "2");
+                //((EstoqueDisplay)currentFrame).UpdateTable(Estoque.ObterEstoque().ObterArrayProduto());
                 break;
-            case 2:
-                currentFrame = new AdicionarEstoque();
-                currentFrame.setVisible(true);
+            case 2:                
+                cardLayout.show(panelCont, "3");
                 break;
             case 3:
-                currentFrame = new EstoqueManagement();
-                ((EstoqueManagement)currentFrame).UpdateTable(Estoque.ObterEstoque().ObterArrayProduto());
-                currentFrame.setVisible(true);
+                //((EstoqueManagement)currentFrame).UpdateTable(Estoque.ObterEstoque().ObterArrayProduto());
+                estoqueManagement.UpdateTable(Estoque.ObterEstoque().ObterArrayProduto());
+                cardLayout.show(panelCont, "4");
                 break;
             default:
-                currentFrame = new Index();
-                currentFrame.setVisible(true);
+                cardLayout.show(panelCont, "1");
         }
     }
     public void CreateExclusionForm(int productId)
@@ -55,14 +72,15 @@ public class InterfaceManager
         exclusionForm.InitializeWindow(Estoque.ObterEstoque().RetornarProdutoDeID(productId));
         exclusionForm.setVisible(true);
     }
-    public void UpdateEstoqueManagementAfterExclusion()
-    {
-        ((EstoqueManagement)currentFrame).UpdateTable(Estoque.ObterEstoque().ObterArrayProduto());
-    }
     public void CreateEditionForm(int productId)
     {
         EditionForm editionForm = new EditionForm();
         editionForm.InitializeWindow(Estoque.ObterEstoque().RetornarProdutoDeID(productId));
         editionForm.setVisible(true);
+    }
+    public void UpdateEstoqueManagementAfterEdition()
+    {
+        estoqueManagement.UpdateTable(Estoque.ObterEstoque().ObterArrayProduto());
+        estoqueDisplay.UpdateTable(Estoque.ObterEstoque().ObterArrayProduto());
     }
 }

@@ -227,7 +227,7 @@ public class EditionForm extends javax.swing.JFrame {
             
             Estoque.ObterEstoque().ModificarProdutoDeID(contextId, produtoModificado);
             JOptionPane.showMessageDialog(null, "PRODUTO ALTERADO COM SUCESSO.");
-            InterfaceManager.Instancia().UpdateEstoqueManagementAfterExclusion();
+            InterfaceManager.Instancia().UpdateEstoqueManagementAfterEdition();
             this.setVisible(false);
         }
     }//GEN-LAST:event_jButton3ActionPerformed
