@@ -1,5 +1,7 @@
 package GUI;
 
+import com.a3.principal.*;
+
 public class InterfaceManager
 {
     //Fazendo uso do design pattern singleton, pois haverá apenas um Manager(Gerenciador) para interface.
@@ -22,7 +24,6 @@ public class InterfaceManager
     public void SwitchWindow(int windowId)
     {
         currentFrame.setVisible(false);
-        
         switch(windowId)
         {
             case 0:
@@ -30,18 +31,38 @@ public class InterfaceManager
                 currentFrame.setVisible(true);
                 break;
             case 1:
-                EstoqueDisplay estoqueDisplay = new EstoqueDisplay();
-                estoqueDisplay.UpdateTable();
-                currentFrame = estoqueDisplay;
+                currentFrame = new EstoqueDisplay();
+                ((EstoqueDisplay)currentFrame).UpdateTable(Estoque.ObterEstoque().ObterArrayProduto());
                 currentFrame.setVisible(true);
                 break;
             case 2:
-                /*currentFrame = new Index();
-                currentFrame.setVisible(true);*/
+                currentFrame = new AdicionarEstoque();
+                currentFrame.setVisible(true);
+                break;
+            case 3:
+                currentFrame = new EstoqueManagement();
+                ((EstoqueManagement)currentFrame).UpdateTable(Estoque.ObterEstoque().ObterArrayProduto());
+                currentFrame.setVisible(true);
                 break;
             default:
                 currentFrame = new Index();
                 currentFrame.setVisible(true);
         }
+    }
+    public void CreateExclusionForm(int productId)
+    {
+        ExlusionForm exclusionForm = new ExlusionForm();
+        exclusionForm.InitializeWindow(Estoque.ObterEstoque().RetornarProdutoDeID(productId));
+        exclusionForm.setVisible(true);
+    }
+    public void UpdateEstoqueManagementAfterExclusion()
+    {
+        ((EstoqueManagement)currentFrame).UpdateTable(Estoque.ObterEstoque().ObterArrayProduto());
+    }
+    public void CreateEditionForm(int productId)
+    {
+        EditionForm editionForm = new EditionForm();
+        editionForm.InitializeWindow(Estoque.ObterEstoque().RetornarProdutoDeID(productId));
+        editionForm.setVisible(true);
     }
 }

@@ -24,6 +24,21 @@ public class Estoque
     adicionar, remover ou acessar diretamente a ArrayList 'produtosEmEstoque'.
     */
     private ArrayList<Produto> produtosEmEstoque = new ArrayList<Produto>();
+    public Produto[] ObterArrayProduto()
+    {
+        //Metodo para retornar o estoque em Array
+        return ListaParaVetor(produtosEmEstoque);
+    }
+    public Produto[] ListaParaVetor(ArrayList<Produto> lista)
+    {
+        //Metodo para retornar o estoque em Array
+        Produto[] produtos = new Produto[lista.size()];
+        for(int i=0; i<produtos.length; i++)
+        {
+            produtos[i] = lista.get(i);
+        }
+        return produtos;
+    }
     public void AdicionarProdutoAoEstoque(Produto produto)
     {
         int idProduto = produto.INT_ValorOrdenavel(AtributosProduto.ID);
@@ -67,9 +82,6 @@ public class Estoque
         {
             if(produtosEmEstoque.get(i).INT_ValorOrdenavel(AtributosProduto.ID) == id)
             {
-                /*
-                
-                */
                 RemoverProdutoDoEstoque(i);
                 break;
             }
@@ -104,13 +116,12 @@ public class Estoque
         for(int i=0;i<arrayProdutos.length;i++)
         {
             arrayProdutos[i] = produtosEmEstoque.get(i);
-            //arrayProdutos[i].OrdenacaoPor = atributosProduto;
         }
         
         return GerenciadorOrdenacao.ObterEstoqueOrdenado(arrayProdutos, ordemCrescente, tipoOrdenacao, atributosProduto);
     }
     
-    public ArrayList<Produto> BuscarProdutoPor(AtributosProduto atributosProduto, String criterioBusca)
+    public Produto[] BuscarProdutoPor(AtributosProduto atributosProduto, String criterioBusca)
     {
         criterioBusca = criterioBusca.toLowerCase();
         
@@ -125,6 +136,6 @@ public class Estoque
             }
         }
         
-        return arrayProdutos;
+        return ListaParaVetor(arrayProdutos);
     }
 }

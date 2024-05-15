@@ -31,59 +31,10 @@ public class Principal
 {
     public static void main(String[] args)
     {
-        InicializarSeteProdutos();
+        //Este metodo inicializa alguns produtos para testes
+        InicializarProdutos();
         
-        //Listar estoque
-        for(int i=0;i<Estoque.ObterEstoque().QuantidadeProdutosEstoque();i++)
-        {
-            System.out.println(Estoque.ObterEstoque().ObterProdutoNoIndice(i));
-        }
-        
-        PrintEmptyLine();
-        
-        //Listar por ID - Ordem Crescente(Atributo da classe Produto)
-        
-        Produto[] produtosOrdenados = Estoque.ObterEstoque().ObterEstoquePor(AtributosProduto.NAME, false, "string");
-        
-        for(int i=0;i<produtosOrdenados.length;i++)
-        {
-            System.out.println(produtosOrdenados[i]);
-        }
-        
-        PrintEmptyLine();
-        
-        /*Buscar produtos por nome;
-        String buscaFeita = "t";
-        ArrayList<Produto> produtosEncontrados = Estoque.ObterEstoque().BuscarProdutoPor(AtributosProduto.NAME, buscaFeita);
-        
-        for(int i=0; i<produtosEncontrados.size(); i++)
-        {
-            System.out.println(produtosEncontrados.get(i));
-        }
-        
-        
-        PrintEmptyLine();
-        //Remover e Listar estoque
-        Estoque.ObterEstoque().RemoverProdutoDeID(5);
-        for(int i=0;i<Estoque.ObterEstoque().QuantidadeProdutosEstoque();i++)
-        {
-            System.out.println(Estoque.ObterEstoque().ObterProdutoNoIndice(i));
-        }
-        
-        PrintEmptyLine();
-        
-        //Modificar um registro e print
-        Produto produtoModificado = new ProdutoBuilder().setId(0).
-                setName("Computador Gamer Pichau").setProductType("Informatica").setBrandOwner("Pichau").
-                setPrice(8000).setAvailableAmount(32).getProduto();
-        
-        Estoque.ObterEstoque().ModificarProdutoDeID(0, produtoModificado);
-        for(int i=0;i<Estoque.ObterEstoque().QuantidadeProdutosEstoque();i++)
-        {
-            System.out.println(Estoque.ObterEstoque().ObterProdutoNoIndice(i));
-        }
-        */
-        
+        //Este metodo vai carregar a janela inicial do programa
         InterfaceManager.Instancia().Initialize();
     }
     
@@ -94,7 +45,7 @@ public class Principal
         System.out.println();
     }
     
-    public static void InicializarSeteProdutos()
+    public static void InicializarProdutos()
     {
         
         Estoque.ObterEstoque().AdicionarProdutoAoEstoque(new ProdutoBuilder().setId(0).

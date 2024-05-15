@@ -6,7 +6,7 @@ package GUI;
 
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-
+import com.a3.principal.*;
 /**
  *
  * @author Pichau
@@ -32,6 +32,12 @@ public class EstoqueDisplay extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -46,6 +52,7 @@ public class EstoqueDisplay extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable1.setEnabled(false);
         jScrollPane1.setViewportView(jTable1);
 
         jButton1.setText("VOLTAR");
@@ -55,23 +62,80 @@ public class EstoqueDisplay extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("Organizar Por");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Id", "Nome", "Categoria", "Marca", "Preço", "Quantidade" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Crescente", "Decrescente" }));
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Pesquisa:");
+
+        jButton2.setText("BUSCAR");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
-                .addContainerGap(19, Short.MAX_VALUE))
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addComponent(jLabel1)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton2))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -82,22 +146,75 @@ public class EstoqueDisplay extends javax.swing.JFrame {
         // TODO add your handling code here:
         InterfaceManager.Instancia().SwitchWindow(0);
     }//GEN-LAST:event_jButton1ActionPerformed
-    public void UpdateTable()
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+        //System.out.println("SELECTED: "+jComboBox1.getSelectedItem().toString());
+        UpdateTableFilters(jComboBox1.getSelectedItem().toString(), jComboBox2.getSelectedItem().toString());
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+        UpdateTableFilters(jComboBox1.getSelectedItem().toString(), jComboBox2.getSelectedItem().toString());
+    }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        SearchTableByText(jFormattedTextField1.getText());
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    public void UpdateTable(Produto[] produto)
     {
-        String[] columns = new String[]
+        //jTable1 = new JTable(data, columns);
+        //Produto(int id, String name, String productType, String brandOwner, int price, int availableAmount)
+        Object[][] rowObject = new Object[produto.length][6];
+        for(int i=0;i<produto.length;i++)
         {
-            "Id", "Name", "Hourly Rate", "Part Time"
-        }; 
-        //actual data for the table in a 2d array
-        Object[][] data = new Object[][]
+            rowObject[i][0] = produto[i].INT_ValorOrdenavel(AtributosProduto.ID);
+            rowObject[i][1] = produto[i].STRING_ValorOrdenavel(AtributosProduto.NAME);
+            rowObject[i][2] = produto[i].STRING_ValorOrdenavel(AtributosProduto.PRODUCT_TYPE);
+            rowObject[i][3] = produto[i].STRING_ValorOrdenavel(AtributosProduto.BRAND_OWNER);
+            rowObject[i][4] = produto[i].INT_ValorOrdenavel(AtributosProduto.PRICE);
+            rowObject[i][5] = produto[i].INT_ValorOrdenavel(AtributosProduto.AVAILABLE_AMOUNT); 
+        }
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        rowObject,
+        new String[]
         {
-            {1, "John", 40.0, false },
-            {2, "Rambo", 70.0, false },
-            {3, "Zorro", 60.0, true },
-        };
-        jTable1 = new JTable(data, columns);
-        jTable1.setVisible(true);
-        this.add(new JScrollPane(jTable1));
+            "Id", "Nome do Produto", "Categoria", "Marca", "Preço", "Quantidade",
+        }));
+    }
+    public void UpdateTableFilters(String combo1, String combo2)
+    {
+        AtributoTipo<AtributosProduto, String> atributosTipoProduto = ConvertComboSelectionToAtribute(combo1);
+        boolean ordemCrescente = (combo2 == "Crescente") ? true : false;
+        Produto[] produtosOrdenados = Estoque.ObterEstoque().ObterEstoquePor(atributosTipoProduto.a, ordemCrescente, atributosTipoProduto.b);
+        UpdateTable(produtosOrdenados);
+    }
+    public void SearchTableByText(String texto)
+    {
+        Produto[] produtosEncontrados = Estoque.ObterEstoque().BuscarProdutoPor(AtributosProduto.NAME, texto);
+        UpdateTable(produtosEncontrados);
+    }
+    public AtributoTipo<AtributosProduto, String> ConvertComboSelectionToAtribute(String comboString)
+    {
+        switch(comboString)
+        {
+            case "Id":
+              return new AtributoTipo<AtributosProduto, String>(AtributosProduto.ID, "int");
+            case "Nome":
+              return new AtributoTipo<AtributosProduto, String>(AtributosProduto.NAME, "string");
+            case "Categoria":
+              return new AtributoTipo<AtributosProduto, String>(AtributosProduto.PRODUCT_TYPE, "string");
+            case "Marca":
+              return new AtributoTipo<AtributosProduto, String>(AtributosProduto.BRAND_OWNER, "string");
+            case "Preço":
+              return new AtributoTipo<AtributosProduto, String>(AtributosProduto.PRICE, "string");
+            case "Quantidade":
+              return new AtributoTipo<AtributosProduto, String>(AtributosProduto.AVAILABLE_AMOUNT, "int");
+            default:
+              return new AtributoTipo<AtributosProduto, String>(AtributosProduto.ID, "int");
+          }
     }
     /**
      * @param args the command line arguments
@@ -136,6 +253,12 @@ public class EstoqueDisplay extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JFormattedTextField jFormattedTextField1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
