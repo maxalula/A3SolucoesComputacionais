@@ -138,4 +138,8 @@ public class Estoque
         
         return ListaParaVetor(arrayProdutos);
     }
+    public void ComprarProduto(Produto produto)
+    {
+        produto.UpdateAmount(false);
+    }
 }

@@ -71,6 +71,21 @@ public class Produto
             }
         }
     }
+    public void UpdateAmount(boolean increase)
+    {
+        if(increase)
+        {
+            availableAmount++;
+        }
+        else
+        {
+            availableAmount--;
+            if(availableAmount <= 0)
+            {
+                availableAmount = 0;
+            }
+        }
+    }
     public String toString()
     {
         return "Produto de ID: " + id + " Nome: " + name + " Marca: " + brandOwner + " Categoria: " + productType + " Quantidade Disponivel: " + availableAmount + " Preço: " + price;

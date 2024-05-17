@@ -26,6 +26,9 @@ public class InterfaceManager
     private EstoqueDisplay estoqueDisplay = new EstoqueDisplay();
     private AdicionarEstoque adicionarEstoque = new AdicionarEstoque();
     private EstoqueManagement estoqueManagement = new EstoqueManagement();
+    private LoginDisplay loginDisplay = new LoginDisplay();
+    private RegistroDisplay registroDisplay = new RegistroDisplay();
+    private JanelaCompra janelaCompra = new JanelaCompra();
     /*         */
     public void Initialize()
     {
@@ -34,6 +37,9 @@ public class InterfaceManager
         panelCont.add(estoqueDisplay.getContentPane(), "2");
         panelCont.add(adicionarEstoque.getContentPane(), "3");
         panelCont.add(estoqueManagement.getContentPane(), "4");
+        panelCont.add(loginDisplay.getContentPane(), "5");
+        panelCont.add(registroDisplay.getContentPane(), "6");
+        panelCont.add(janelaCompra.getContentPane(), "7");
         cardLayout.show(panelCont, "1");
         
         currentFrame.add(panelCont);
@@ -61,6 +67,16 @@ public class InterfaceManager
                 //((EstoqueManagement)currentFrame).UpdateTable(Estoque.ObterEstoque().ObterArrayProduto());
                 estoqueManagement.UpdateTable(Estoque.ObterEstoque().ObterArrayProduto());
                 cardLayout.show(panelCont, "4");
+                break;
+            case 4:
+                cardLayout.show(panelCont, "5");
+                break;
+            case 5:
+                cardLayout.show(panelCont, "6");
+                break;
+            case 6:
+                janelaCompra.Initialize(Estoque.ObterEstoque().ObterArrayProduto());
+                cardLayout.show(panelCont, "7");
                 break;
             default:
                 cardLayout.show(panelCont, "1");

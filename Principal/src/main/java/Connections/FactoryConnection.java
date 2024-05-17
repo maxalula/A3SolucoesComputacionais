@@ -7,10 +7,9 @@ import javax.swing.JOptionPane;
 public class FactoryConnection
 {
     //Constantes com as credenciais do BACKEND
-    private static final String url = "sql_140_238_191_214";
-    private static final String usuario = "sql_140_238_191_";
-    private  static final String senha = "iLpaNX6dGdJN75F3";
-    
+    private static final String url = "";
+    private static final String usuario = "";
+    private  static final String senha = "";
     public static Connection GetConnection()
     {    
         Connection connection = null;
