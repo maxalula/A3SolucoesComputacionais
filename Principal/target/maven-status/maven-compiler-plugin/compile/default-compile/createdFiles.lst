@@ -7,6 +7,7 @@ GUI\JanelaCompra$3.class
 GUI\JanelaCompra.class
 com\a3\principal\GerenciadorOrdenacao.class
 GUI\EstoqueDisplay$5.class
+GUI\LoginDisplay$3.class
 GUI\RegistroDisplay$2.class
 GUI\AdicionarEstoque$6.class
 com\a3\principal\Produto.class
@@ -30,6 +31,7 @@ GUI\EstoqueDisplay.class
 GUI\EditionForm$2.class
 com\a3\principal\ProdutoBuilder.class
 GUI\EstoqueManagement.class
+GUI\RegistroDisplay$3.class
 GUI\EditionForm$5.class
 GUI\EstoqueDisplay$3.class
 GUI\ExlusionForm$3.class
@@ -42,7 +44,6 @@ com\a3\principal\AtributosProduto.class
 GUI\EstoqueManagement$3.class
 GUI\Index$5.class
 GUI\AdicionarEstoque$4.class
-Connections\FactoryConnection.class
 com\a3\principal\Estoque.class
 GUI\AdicionarEstoque$1.class
 GUI\EditionForm$6.class

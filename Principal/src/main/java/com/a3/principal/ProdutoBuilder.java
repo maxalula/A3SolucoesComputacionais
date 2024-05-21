@@ -2,6 +2,8 @@ package com.a3.principal;
 
 public class ProdutoBuilder
 {
+    //Classe criada com o intuito de facilitar a criação de classes do tipo Produto
+    //Fazendo uso do Design Paterrn Builder, é possível ignorar as limitações de um método construtor.
     private int id;
     private String name, productType, brandOwner;
     private int price, availableAmount;

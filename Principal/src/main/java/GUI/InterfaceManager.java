@@ -32,6 +32,7 @@ public class InterfaceManager
     /*         */
     public void Initialize()
     {
+        //Adiciono as janelas no layout do projeto
         panelCont.setLayout(cardLayout);
         panelCont.add(index.getContentPane(), "1");
         panelCont.add(estoqueDisplay.getContentPane(), "2");
@@ -48,6 +49,7 @@ public class InterfaceManager
         currentFrame.setVisible(true);
         
     }
+    //Metodo para altrar janelas baseado no id
     public void SwitchWindow(int windowId)
     {
         switch(windowId)

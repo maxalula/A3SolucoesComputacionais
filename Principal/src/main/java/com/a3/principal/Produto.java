@@ -1,7 +1,8 @@
 package com.a3.principal;
-
+//Classe principal contendo os produtos no qual o sistema vai trabalhar em cima
 public class Produto
 {
+    //declaração dos atributos como protected, para que possam ser usados por classes filhas.
     protected int id;
     protected String name, productType, brandOwner;
     protected int price, availableAmount;
@@ -21,7 +22,9 @@ public class Produto
         this.productType = productType;
         this.availableAmount = availableAmount;
     }
-    
+    //Seguindo a premissa descrita no livro 'Clean Code: A Handbook of Agile Software Craftsmanship'
+    //Simplesmente expor getters e setters torna todos os métodos publicos.
+    //Ao longo deste sistema, usaremos os dois métodos como getters para simplificar o projeto e deixar mais lógico. 
     public int INT_ValorOrdenavel(AtributosProduto ordenarPor)
     {
         switch(ordenarPor)

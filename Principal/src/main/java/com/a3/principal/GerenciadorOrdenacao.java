@@ -16,16 +16,18 @@ public class GerenciadorOrdenacao
             return STR_OrdenarEstoque(produtos, inverter, ordenarPor);
         }
     }
-    
+    //Aqui é implementado a lógica de Insertion Sort, para organizar um vetor de inteiros.
+    //Fiz algumas modificações para que fosse possível organizar um vetor de classe baseado num atributo inteiro, e adicionei uma boolean
+    //para organizar na ordem inversa.
     private static Produto[] INT_OrdenarEstoque(Produto[] produtos, boolean inverter, AtributosProduto ordenarPor)
     {
         for (int i = 1; i < produtos.length; i++)
         {
-            Produto currentValue = produtos[i];//.ValorOrdenavel();
-            int j = i - 1;// J starts a index Before the current I
+            Produto currentValue = produtos[i];
+            int j = i - 1;
             if(inverter)
             {
-                while (j >= 0 && produtos[j].INT_ValorOrdenavel(ordenarPor) > currentValue.INT_ValorOrdenavel(ordenarPor))//Jay cannot go past the index 0(duh) and Sorting Criteria
+                while (j >= 0 && produtos[j].INT_ValorOrdenavel(ordenarPor) > currentValue.INT_ValorOrdenavel(ordenarPor))
                 {
                     produtos[j + 1] = produtos[j];
                     j--;
@@ -33,7 +35,7 @@ public class GerenciadorOrdenacao
             }
             else
             {
-                while (j >= 0 && produtos[j].INT_ValorOrdenavel(ordenarPor) < currentValue.INT_ValorOrdenavel(ordenarPor))//Jay cannot go past the index 0(duh) and Sorting Criteria
+                while (j >= 0 && produtos[j].INT_ValorOrdenavel(ordenarPor) < currentValue.INT_ValorOrdenavel(ordenarPor))
                 {
                     produtos[j + 1] = produtos[j];
                     j--;
@@ -44,6 +46,7 @@ public class GerenciadorOrdenacao
         
         return produtos;
     }
+    //Aqui eu faço uso do Collections.sort do próprio java para organizar em ordem alfabetica
     private static Produto[] STR_OrdenarEstoque(Produto[] produtos, boolean inverter, AtributosProduto ordenarPor)
     {
         //Crio uma lista vazia
@@ -83,7 +86,7 @@ public class GerenciadorOrdenacao
                 }
             }
         }
-        //TODO: Retornar em ordem alfabetica / invertida
+        
         return produtos;
     }
 }

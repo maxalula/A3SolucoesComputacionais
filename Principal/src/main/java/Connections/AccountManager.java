@@ -5,11 +5,13 @@ import javax.swing.JOptionPane;
 
 public class AccountManager
 {
+    //Classe que gerencia a conta atual do usuário, faz login/logoff
+    
     //Singleton para gerenciar contas
     private static final AccountManager accountManager = new AccountManager();
+    
     private boolean loginRealizado;
     private Account contaLogada;
-    
     private ArrayList<Account> contasRegistradas = new ArrayList<Account>();
     //Com o construtor 'private', não será possível criar outras instâncias, havendo assim apenas um único estoque.
     private AccountManager() { }
@@ -33,6 +35,7 @@ public class AccountManager
         contaLogada = null;
         loginRealizado = false;
     }
+    //Faz uma busca pelas contas registradas, para ver se há alguma com usuario e senha igual aos passados aqui
     public boolean RealizarLogin(String u, String s)
     {
         if(contasRegistradas.size() > 0)
@@ -59,6 +62,8 @@ public class AccountManager
             return false;
         }
     }
+    
+    //Cria uma nova conta com as credenciais passadas, e adiciona no 'banco' de contas
     public boolean RealizarCadastro(String u, String s)
     {
         Account contaNova = new Account(u,s);
