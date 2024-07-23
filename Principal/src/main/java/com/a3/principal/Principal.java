@@ -3,7 +3,7 @@ DESCRIÇÃO COMPLETA DA EQUIPE
 INTEGRANTES:
 {
     Nome: Rafael Dos Anjos Costa 
-    RA: 1272419765DOIJSAASDJOPASDKPOASDKOPASDKOP
+    RA: 1272419765
 }
 {
     Nome: Gabriel Enzo Coutinho de Melo 
