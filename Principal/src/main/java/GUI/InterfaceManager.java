@@ -18,7 +18,7 @@ public class InterfaceManager
     {
         return interfaceManager;
     }
-    private JFrame currentFrame = new JFrame("Nome do Aplicativo");
+    private JFrame currentFrame = new JFrame("Sistema");
     private JPanel panelCont = new JPanel();
     private CardLayout cardLayout = new CardLayout();
     /* PANELS */

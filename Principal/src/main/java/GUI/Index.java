@@ -40,7 +40,7 @@ public class Index extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("NOME DO APLICATIVO");
+        jLabel1.setText("SISTEMA DE ESTOQUE");
 
         jButton1.setText("Consultar Estoque");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -64,7 +64,6 @@ public class Index extends javax.swing.JFrame {
         });
 
         jButton4.setBackground(new java.awt.Color(204, 255, 0));
-        jButton4.setForeground(new java.awt.Color(0, 0, 0));
         jButton4.setText("Comprar Produtos");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

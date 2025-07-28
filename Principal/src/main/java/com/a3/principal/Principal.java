@@ -1,31 +1,3 @@
-/*
-DESCRIÇÃO COMPLETA DA EQUIPE
-INTEGRANTES:
-{
-    Nome: Rafael Dos Anjos Costa 
-    RA: 1272419765
-}
-{
-    Nome: Gabriel Enzo Coutinho de Melo 
-    RA: 1272412136
-}
-{
-    Nome: Eduardo Batista Araujo  
-    RA: 1272327420
-}
-{
-    Nome: Tiago Silva Coelho Maciel
-    RA: 1272326567
-}
-{
-    Nome: Marcossuel Cerqueira dos Santos  
-    RA: 12723215922
-}
-{
-    Nome: Nailla Borges
-    RA: 12724161864
-}
-*/
 package com.a3.principal;
 import java.util.*;
 import GUI.*;
