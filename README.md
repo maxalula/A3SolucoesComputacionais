@@ -1,2 +1,5 @@
-# A3SolucoesComputacionais
-Projeto da A3 da matéria de programação de soluções computacionais
+# Sistema de Estoque de Inventário
+
+Essa aplicação tem o intuito de permitir cadastro, busca e filtragem de itens de um estoque de loja ficticia.
+
+Linguagem utilizada: Java
